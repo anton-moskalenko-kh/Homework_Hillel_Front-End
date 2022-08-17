@@ -1,0 +1,93 @@
+.container {
+    margin: 0 auto;
+    padding: 0;
+    width: 80%;
+}
+
+.card__container {
+    width: 700px;
+    height: 450px;
+    background: url("./image/background.jpg");
+    border: 2px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 40px auto 0 auto;
+}
+
+.logo__block {
+    flex: 0 1 50%;
+    text-align: center;
+}
+
+.data__block {
+    display: flex;
+    flex: 1 1 50%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo {
+    width: 200px;
+    height: 150px;
+}
+
+.name {
+    color: #dfdede;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.profession {
+    color: #a5a2a2;
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+.skills__wrapper {
+    margin: 15px 0 0 0;
+}
+
+.skills {
+    display: block;
+    font-size: 20px;
+    color: #dfdede;
+    margin: 0 0 5px 0;
+}
+
+.icon__point {
+    margin-right: 10px;
+    color: #dfdede;
+}
+
+.email {
+    font-size: 20px;
+    color: #dfdede;
+    margin: 10px 0 0 0px;
+}
+
+.email__icon {
+    margin-right: 5px;
+}
+
+.form {
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+.form__input {
+    padding: 10px;
+    width: 300px;
+    margin: 0 10px 0 0;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+.form__button {
+    padding: 10px;
+    background-color: forestgreen;
+    border: 1px solid grey;
+    border-radius: 5px;
+    cursor: pointer;
+}
