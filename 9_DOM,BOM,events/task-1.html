@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .text-color {
+        color: red;
+    }
+</style>
+<body>
+    <p class="js--text">
+        Lorem ipsum dolor sit amet, integre labitur suscipiantur eam no, efficiendi sadipscing usu ut. His at utinam pericula, noluisse recteque pro ut, ad cum omnes laudem discere. Viris corpora forensibus nec ne, ad quaeque laboramus qui. Quo et enim viris, per natum latine et, mel diceret corpora ea. Ea elitr soluta placerat nam, cibo epicurei ex ius. Ei epicuri signiferumque has.
+        Velit tantas fastidii et eos. Cum ex periculis constituam, sed latine nostrud at. Quo prima everti indoctum no, pro neglegentur deterruisset ad. Est praesent vituperatoribus te, pri et ipsum minimum molestie, sea ea iudico nonumy.
+    </p>
+    <button class="js--button">Изменить текст</button>
+    <script>
+        const button = document.querySelector('.js--button');
+        const text = document.querySelector('.js--text');
+        function changeColorText() {
+            text.classList.toggle('text-color');
+        }
+        button.addEventListener('click', changeColorText);
+    </script>
+</body>
+</html>

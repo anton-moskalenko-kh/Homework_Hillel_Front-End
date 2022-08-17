@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    button {
+        display: block;
+        font-size: 30px;
+        margin: 20px auto 20px auto;
+        border: 1px solid black;
+        border-radius: 20px;
+        padding: 10px;
+        background-color: aquamarine;
+
+    }
+    img {
+        display: none;
+    }
+    .image-size {
+        display: block;
+        width: 80vw;
+        height: 80vh;
+        margin: 0 auto;
+    }
+</style>
+<body>
+<button class="button">Вывести картинку</button>
+<img src="" alt="">
+<script>
+    const button = document.querySelector('.button');
+    function changeImage() {
+        const images = document.querySelector('img');
+        images.classList.add('image-size')
+        const rand = Math.ceil(Math.random() * 9);
+        images.src = 'images/' + rand + '.jpg';
+    }
+    button.addEventListener('click', changeImage)
+
+</script>
+</body>
+</html>
