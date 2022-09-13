@@ -1,9 +1,10 @@
+import {Button} from "@mui/material";
 
-function Button(props) {
-    const { text, click } = props
+function ItemButton(props) {
+    const { text, click, varient} = props
     return (
-        <button className="form__button" onClick={click}>{text}</button>
+        <Button variant={varient} sx={{marginInlineStart: 1, minWidth: 2}} size='small' type='submit' onClick={click}>{text}</Button>
     )
 }
 
-export default Button
+export default ItemButton

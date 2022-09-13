@@ -1,5 +1,7 @@
-import Button from "./Button";
 import {useState} from "react";
+
+//Material UI
+import ItemButton from "./Button";
 
 function Item(props) {
     const {description, remove, id, checked, checkedItem, update} = props
@@ -11,7 +13,7 @@ function Item(props) {
     const todoClassName = ['todo-item__desc', checkboxChecked]
 
     const handleChecked = () => {
-        checkedItem({ id, checked: !checked })
+        checkedItem({id, checked: !checked})
     }
 
     const handleEditItem = () => {
@@ -31,19 +33,18 @@ function Item(props) {
     return (
         <div className="todo-item">
             <label className="todo-item__label">
-                <input type="checkbox" onClick={handleChecked} defaultChecked={checked}/>
-                { edit ?
+                <input className='checkbox' type="checkbox" onClick={handleChecked} defaultChecked={checked}/>
+                {edit ?
                     <div className="update__block">
-                        <input type="text" name="description" className="form__input" value={value} onChange={(e) => setValue(e.target.value)}/>
+                        <input type="text" name="description" className="form__input" value={value}
+                               onChange={(e) => setValue(e.target.value)}/>
+                        <ItemButton varient='outlined' text="Save" click={handleUpdateItem}/>
                     </div>
                     :
-                    <p className={todoClassName.join(' ')}>{description}</p>
-                }
-                { edit ? <Button text="Сохранить" click={handleUpdateItem}/>
-                    :
                     <>
-                        <Button text="Редактировать" click={handleEditItem} />
-                        <Button text="Удалить" click={deleteItem}/>
+                        <p className={todoClassName.join(' ')}>{description}</p>
+                        <ItemButton varient='outlined' text="Edit" click={handleEditItem}/>
+                        <ItemButton varient='outlined' text="Delete" click={deleteItem}/>
                     </>
                 }
             </label>

@@ -1,21 +1,41 @@
-import Button from "./Button";
-import { v4 } from 'uuid';
+import {v4} from 'uuid';
+import {Form, Field} from "react-final-form";
 
-function Form(props) {
+//Material UI
+import Input from "./Form/Input";
+import ItemButton from "./Button";
+
+function MainForm(props) {
     const {onAdd} = props;
 
     const handleItem = (event) => {
-        event.preventDefault();
-        onAdd({id: v4(), description: event.target.description.value})
-        event.target.description.value = '';
+        onAdd({id: v4(), description: event.description})
+        event.description = ''
+    }
+
+    const minLengthField = (values) => {
+        const errors = {}
+        const valueLength = values.description || []
+        if (valueLength.length < 5 && values.description !== '') {
+            errors.description = "Минимальная длина не менее 5 символов"
+        }
+        return errors
     }
 
     return (
-        <form action="#" className="form" onSubmit={handleItem}>
-            <input type="text" name="description" className="form__input"/>
-            <Button text="Добавить"/>
-        </form>
+        <Form onSubmit={handleItem}
+              validate={minLengthField}
+              render={(props) => {
+                  const {handleSubmit} = props
+                  return (
+                      <form className="form" onSubmit={handleSubmit}>
+                          <Field component={Input} name='description' placeholder={'Enter your task'} className="form__input"/>
+                          <ItemButton text="Add task" varient='contained'/>
+                      </form>
+                  )
+              }}
+        />
     )
 }
 
-export default Form
+export default MainForm

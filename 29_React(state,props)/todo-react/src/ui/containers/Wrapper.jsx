@@ -1,6 +1,9 @@
 import {useEffect, useState} from "react";
-import Form from "../components/Form";
+import MainForm from "../components/Form";
 import Item from "../components/Item";
+import {Input} from "@mui/material";
+
+import ErrorBoundary from "./ErrorBoundary";
 
 function Wrapper() {
     const [items, setItems] = useState([])
@@ -17,7 +20,7 @@ function Wrapper() {
 
     const removeItem = (id) => {
         const newItems = items.filter(item => item.id !== id)
-        setItems([...newItems])
+        setItems(newItems)
         localStorage.setItem('items', JSON.stringify(newItems))
     }
 
@@ -28,7 +31,7 @@ function Wrapper() {
             }
             return item;
         });
-        setItems([...saveItem])
+        setItems(saveItem)
     }
 
     const checkedItem = ({id, checked}) => {
@@ -38,30 +41,28 @@ function Wrapper() {
             }
             return item;
         });
-        setItems([...updateItems])
+        setItems(updateItems)
         localStorage.setItem('items', JSON.stringify(updateItems))
     }
 
     return (
-        <div className="container">
-            <h1>TODO</h1>
-            <Form onAdd={addItem}/>
-            <br/>
-            <h2>TODOS</h2>
-            <br/>
-            <hr/>
-            <div className="todos-wrapper">
-                {items.map(item => <Item key={item.id}
-                                         checkedItem={checkedItem}
-                                         update={updateItem}
-                                         checked={item.checked}
-                                         id={item.id}
-                                         remove={removeItem}
-                                         description={item.description}
-                                     />
-                )}
+        <ErrorBoundary>
+            <div className="container">
+                <MainForm onAdd={addItem}/>
+                <h2>Your Tasks:</h2>
+                <div className="todos-wrapper">
+                    {items.map(item => <Item key={item.id}
+                                             checkedItem={checkedItem}
+                                             update={updateItem}
+                                             checked={item.checked}
+                                             id={item.id}
+                                             remove={removeItem}
+                                             description={item.description}
+                        />
+                    )}
+                </div>
             </div>
-        </div>
+        </ErrorBoundary>
     )
 }
 
